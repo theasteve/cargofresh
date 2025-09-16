@@ -17,9 +17,7 @@ import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.sv
 import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
-import imageTruck from '@/images/laptop.jpg'
 import heroBackground from '@/images/hero-bg.jpg'
-import { loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 
 const clients = [
@@ -62,60 +60,6 @@ function Clients() {
   )
 }
 
-function CaseStudies({ caseStudies }) {
-  return (
-    <>
-      <SectionIntro
-        title="Keeping Florida's food supply fresh and safe"
-        className="mt-24 sm:mt-32 lg:mt-40"
-      >
-        <p>
-          Our temperature-controlled logistics ensure your perishable goods reach their destination fresh, 
-          maintaining the cold chain from pickup to delivery across the entire state of Florida.
-        </p>
-      </SectionIntro>
-      <Container className="mt-16">
-        <FadeInStagger className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {caseStudies.map((caseStudy) => (
-            <FadeIn key={caseStudy.href} className="flex">
-              <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <h3>
-                  <Link href={caseStudy.href}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.client}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
-                  </Link>
-                </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <time
-                    dateTime={caseStudy.date.split('-')[0]}
-                    className="font-semibold"
-                  >
-                    {caseStudy.date.split('-')[0]}
-                  </time>
-                  <span className="text-neutral-300" aria-hidden="true">
-                    /
-                  </span>
-                  <span>Case study</span>
-                </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
-                  {caseStudy.title}
-                </p>
-                <p className="mt-4 text-base text-neutral-600">
-                  {caseStudy.description}
-                </p>
-              </article>
-            </FadeIn>
-          ))}
-        </FadeInStagger>
-      </Container>
-    </>
-  )
-}
 
 function Services() {
   return (
@@ -135,10 +79,12 @@ function Services() {
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-135 flex-none lg:w-180">
               <StylizedImage
-                src={imageTruck}
+                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80"
+                width={2340}
+                height={1560}
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
-                alt="CargoFresh Logistics refrigerated truck on a Florida highway with palm trees in the background"
+                alt="White refrigerated truck on highway during daytime - CargoFresh Logistics transportation"
               />
             </FadeIn>
           </div>
@@ -171,9 +117,7 @@ export const metadata = {
     'CargoFresh Logistics - Florida\'s premier refrigerated food distribution company. Temperature-controlled transportation keeping your products fresh statewide.',
 }
 
-export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
-
+export default function Home() {
   return (
     <RootLayout>
       <div className="relative min-h-screen flex items-center">
@@ -193,8 +137,8 @@ export default async function Home() {
               CargoFresh Logistics - Keeping Florida Fresh, One Delivery at a Time.
             </h1>
             <p className="mt-6 text-xl text-white/90">
-              We specialize in refrigerated food distribution across Florida, providing 
-              reliable temperature-controlled transportation solutions that ensure freshness 
+              We specialize in refrigerated food distribution across Florida, providing
+              reliable temperature-controlled transportation solutions that ensure freshness
               and quality from farm to table.
             </p>
           </FadeIn>
@@ -203,14 +147,12 @@ export default async function Home() {
 
       <Clients />
 
-      <CaseStudies caseStudies={caseStudies} />
-
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Florida Farms', logo: logoPhobiaDark }}
       >
-        CargoFresh has been our trusted logistics partner for over three years. 
-        Their refrigerated trucks always maintain perfect temperatures, and our produce 
+        CargoFresh has been our trusted logistics partner for over three years.
+        Their refrigerated trucks always maintain perfect temperatures, and our produce
         arrives fresh every time. Reliable, professional, and always on schedule.
       </Testimonial>
 

@@ -46,9 +46,48 @@ function RadioInput({ label, ...props }) {
 }
 
 function ContactForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.target)
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      company: formData.get('company'),
+      phone: formData.get('phone'),
+      message: formData.get('message'),
+      budget: formData.get('budget')
+    }
+
+    const budgetLabels = {
+      '25': '$25K – $50K',
+      '50': '$50K – $100K',
+      '100': '$100K – $150K',
+      '150': 'More than $150K'
+    }
+
+    const emailBody = `
+Shipping Quote Request
+
+Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company}
+Phone: ${data.phone}
+Budget: ${budgetLabels[data.budget] || 'Not specified'}
+
+Message:
+${data.message}
+    `.trim()
+
+    const subject = 'Shipping Quote Request from ' + (data.name || 'Website')
+    const mailtoLink = `mailto:operations@cargofreshlogistics.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`
+
+    window.location.href = mailtoLink
+  }
+
   return (
     <FadeIn className="lg:order-last">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2 className="font-display text-base font-semibold text-neutral-950">
           Shipping quote request
         </h2>
@@ -80,7 +119,7 @@ function ContactForm() {
           </div>
         </div>
         <Button type="submit" className="mt-10">
-          Let’s work together
+          Let's work together
         </Button>
       </form>
     </FadeIn>
@@ -106,8 +145,7 @@ function ContactDetails() {
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
-            ['Careers', 'careers@studioagency.com'],
-            ['Press', 'press@studioagency.com'],
+            ['Operations', 'operations@cargofreshlogistics.net'],
           ].map(([label, email]) => (
             <div key={email}>
               <dt className="font-semibold text-neutral-950">{label}</dt>

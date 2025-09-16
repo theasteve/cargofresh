@@ -7,27 +7,9 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
-    title: 'Services',
-    links: [
-      { title: 'Refrigerated Transport', href: '/services/refrigerated' },
-      { title: 'Temperature Monitoring', href: '/services/monitoring' },
-      { title: 'Food Safety Compliance', href: '/services/safety' },
-      {
-        title: (
-          <>
-            All Services <span aria-hidden="true">&rarr;</span>
-          </>
-        ),
-        href: '/services',
-      },
-    ],
-  },
-  {
     title: 'Company',
     links: [
       { title: 'About', href: '/about' },
-      { title: 'Service Areas', href: '/coverage' },
-      { title: 'Safety Standards', href: '/safety' },
       { title: 'Contact us', href: '/contact' },
     ],
   },
@@ -35,7 +17,7 @@ const navigation = [
     title: 'Connect',
     links: [
       { title: 'Phone', href: 'tel:+15551234567' },
-      { title: 'Email', href: 'mailto:info@cargofreshlogistics.com' },
+      { title: 'Email', href: 'mailto:operations@cargofreshlogistics.net' },
     ],
   },
 ]
