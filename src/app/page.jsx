@@ -17,7 +17,7 @@ import logoNorthAdventures from '@/images/clients/north-adventures/logo-light.sv
 import logoPhobiaDark from '@/images/clients/phobia/logo-dark.svg'
 import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
-import imageTruck from '@/images/truck.jpg'
+import imageTruck from '@/images/laptop.jpg'
 import heroBackground from '@/images/hero-bg.jpg'
 import { loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -176,15 +176,21 @@ export default async function Home() {
 
   return (
     <RootLayout>
-      <div 
-        className="relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <Container className="relative mt-24 sm:mt-32 md:mt-56 pb-24">
+      <div className="relative min-h-screen flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src={heroBackground}
+            alt="CargoFresh Logistics truck fleet"
+            className="w-full h-full object-cover"
+            priority
+            fill
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <Container className="relative w-full py-24">
           <FadeIn className="max-w-3xl">
             <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-white sm:text-7xl">
-  CargoFresh Logistics - Keeping Florida Fresh, One Delivery at a Time.
+              CargoFresh Logistics - Keeping Florida Fresh, One Delivery at a Time.
             </h1>
             <p className="mt-6 text-xl text-white/90">
               We specialize in refrigerated food distribution across Florida, providing 
