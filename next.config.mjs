@@ -18,6 +18,8 @@ const nextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   distDir: 'dist',
+  basePath: '/cargofresh',
+  assetPrefix: '/cargofresh',
   images: {
     unoptimized: true,
     remotePatterns: [
