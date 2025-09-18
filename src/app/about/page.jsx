@@ -64,7 +64,7 @@ export default function About() {
           <p>
             Our team brings decades of combined experience in food distribution, logistics
             management, and cold chain technology. We understand that maintaining proper
-            temperatures isn't just about equipment—it's about trust, reliability, and
+            temperatures isn&apos;t just about equipment—it&apos;s about trust, reliability, and
             ensuring your products reach their destination in perfect condition.
           </p>
         </div>
