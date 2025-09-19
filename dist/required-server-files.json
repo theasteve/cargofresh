@@ -11,7 +11,7 @@
     },
     "distDir": "dist",
     "cleanDistDir": true,
-    "assetPrefix": "/cargofresh",
+    "assetPrefix": "",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.mjs",
     "useFileSystemPublicRoutes": true,
@@ -46,7 +46,7 @@
         256,
         384
       ],
-      "path": "/cargofresh/_next/image/",
+      "path": "/_next/image/",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -76,9 +76,9 @@
       "pagesBufferLength": 5
     },
     "amp": {
-      "canonicalBase": "/cargofresh"
+      "canonicalBase": ""
     },
-    "basePath": "/cargofresh",
+    "basePath": "",
     "sassOptions": {},
     "trailingSlash": true,
     "i18n": null,
